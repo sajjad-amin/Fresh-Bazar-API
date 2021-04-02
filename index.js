@@ -5,8 +5,10 @@ const cors = require("cors");
 const MongoClient = require("mongodb").MongoClient;
 const ObjectId = require("mongodb").ObjectId;
 
-const uri =
-  `mongodb+srv://${process.env.DB_USER}:${process.env.DB_USER_PASSWORD}@cluster0.nqjpp.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
+// const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_USER_PASSWORD}@cluster0.nqjpp.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
+
+const uri = 'mongodb+srv://sayem:sayem@cluster0.nqjpp.mongodb.net/fresh-valley?retryWrites=true&w=majority';
+
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
