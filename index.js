@@ -25,9 +25,10 @@ client.connect((err) => {
   })
 
   app.get("/products", (req, res) => {
-    productCollection.find({}).toArray((err, data) => {
-      res.json(data);
-    });
+    // productCollection.find({}).toArray((err, data) => {
+    //   res.json(data);
+    // });
+    res.json({status: 'ok'})
   });
 
   app.get("/product/:id", (req, res) => {
