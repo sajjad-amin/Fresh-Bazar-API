@@ -5,9 +5,7 @@ const cors = require("cors");
 const MongoClient = require("mongodb").MongoClient;
 const ObjectId = require("mongodb").ObjectId;
 
-// const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_USER_PASSWORD}@cluster0.nqjpp.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
-
-const uri = 'mongodb+srv://sayem:sayem@cluster0.nqjpp.mongodb.net/fresh-valley?retryWrites=true&w=majority';
+const uri = process.env.DB_URI;
 
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
@@ -19,8 +17,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 client.connect((err) => {
-  const productCollection = client.db(process.env.DB_NAME).collection("products");
-  const orderCollection = client.db(process.env.DB_NAME).collection("orders");
+  const productCollection = client.db("fresh-valley").collection("products");
+  const orderCollection = client.db("fresh-valley").collection("orders");
 
   app.get("/", (req, res)=>{
       res.send("Welcome to FRESH BAZAR API")
